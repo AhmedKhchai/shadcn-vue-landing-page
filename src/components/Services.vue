@@ -5,7 +5,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
 import { Badge } from "@/components/ui/badge";
 
 enum ProService {
@@ -21,25 +20,27 @@ interface ServiceProps {
 
 const serviceList: ServiceProps[] = [
   {
-    title: "Custom Domain Integration",
+    title: "Basic Management",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit adipisicing.",
+      "Student and teacher management, course scheduling, attendance tracking, and basic reporting.",
     pro: 0,
   },
   {
-    title: "Social Media Integrations",
+    title: "Financial Suite",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae, dicta.",
+      "Advanced payment tracking, multiple discount types, automated billing, and financial analytics.",
+    pro: 1,
+  },
+  {
+    title: "Document Management",
+    description: 
+      "Centralized storage for student records, course materials, and administrative documents.",
     pro: 0,
   },
   {
-    title: "Email Marketing Integrations",
-    description: "Lorem dolor sit amet adipisicing.",
-    pro: 0,
-  },
-  {
-    title: "SEO Optimization",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    title: "Advanced Analytics",
+    description: 
+      "In-depth business insights, performance metrics, and predictive analytics.",
     pro: 1,
   },
 ];
@@ -55,12 +56,13 @@ const serviceList: ServiceProps[] = [
     </h2>
 
     <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">
-      Grow Your Business
+      Choose Your Solution
     </h2>
+
     <h3 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-      From marketing and sales to operations and strategy, we have the expertise
-      to help you achieve your goals.
+      Select the package that best fits your school's needs, from essential management tools to advanced analytics.
     </h3>
+
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
 
     <div

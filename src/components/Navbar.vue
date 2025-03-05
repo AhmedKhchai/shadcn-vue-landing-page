@@ -1,18 +1,14 @@
 <script lang="ts" setup>
-import { ref } from "vue";
-
-import { useColorMode } from "@vueuse/core";
+import { ref } from 'vue';
+import { useColorMode } from '@vueuse/core';
 const mode = useColorMode();
-mode.value = "dark";
 
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+} from '@/components/ui/navigation-menu';
 import {
   Sheet,
   SheetContent,
@@ -20,58 +16,38 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from '@/components/ui/sheet';
 
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-
-import { ChevronsDown, Menu } from "lucide-vue-next";
-import GithubIcon from "@/icons/GithubIcon.vue";
-import ToggleTheme from "./ToggleTheme.vue";
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { Menu } from 'lucide-vue-next';
+import ToggleTheme from './ToggleTheme.vue';
 
 interface RouteProps {
   href: string;
   label: string;
 }
 
-interface FeatureProps {
-  title: string;
-  description: string;
-}
-
 const routeList: RouteProps[] = [
   {
-    href: "#testimonials",
-    label: "Testimonials",
+    href: '#features',
+    label: 'Features',
   },
   {
-    href: "#team",
-    label: "Team",
+    href: '#benefits',
+    label: 'Benefits',
   },
   {
-    href: "#contact",
-    label: "Contact",
+    href: '#pricing',
+    label: 'Pricing',
   },
   {
-    href: "#faq",
-    label: "FAQ",
-  },
-];
-
-const featureList: FeatureProps[] = [
-  {
-    title: "Showcase Your Value ",
-    description: "Highlight how your product solves user problems.",
+    href: '#testimonials',
+    label: 'Testimonials',
   },
   {
-    title: "Build Trust",
-    description:
-      "Leverages social proof elements to establish trust and credibility.",
-  },
-  {
-    title: "Capture Leads",
-    description:
-      "Make your lead capture form visually appealing and strategically.",
+    href: '#contact',
+    label: 'Contact',
   },
 ];
 
@@ -86,23 +62,17 @@ const isOpen = ref<boolean>(false);
       'w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border z-40 rounded-2xl flex justify-between items-center p-2 bg-card shadow-md': true,
     }"
   >
-    <a
-      href="/"
-      class="font-bold text-lg flex items-center"
-    >
-      <ChevronsDown
-        class="bg-gradient-to-tr from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white"
-      />
-      ShadcnVue</a
-    >
+    <a href="/" class="font-bold text-lg flex items-center">
+      <img src="@/assets/scholatech.svg" alt="Scholatech logo" class="w-10 h-10 mr-2" />
+      Scholatech
+    </a>
+
     <!-- Mobile -->
-    <div class="flex items-center lg:hidden">
+    <div class="flex items-center gap-4 lg:hidden">
+      <Button variant="outline" size="sm">Login</Button>
       <Sheet v-model:open="isOpen">
         <SheetTrigger as-child>
-          <Menu
-            @click="isOpen = true"
-            class="cursor-pointer"
-          />
+          <Menu @click="isOpen = true" class="cursor-pointer" />
         </SheetTrigger>
 
         <SheetContent
@@ -112,14 +82,9 @@ const isOpen = ref<boolean>(false);
           <div>
             <SheetHeader class="mb-4 ml-4">
               <SheetTitle class="flex items-center">
-                <a
-                  href="/"
-                  class="flex items-center"
-                >
-                  <ChevronsDown
-                    class="bg-gradient-to-tr from-primary/70 via-primary to-primary/70 rounded-lg size-9 mr-2 border text-white"
-                  />
-                  ShadcnVue
+                <a href="/" class="flex items-center">
+                  <img src="@/assets/scholatech.svg" alt="Scholatech logo" class="w-10 h-10 mr-2" />
+                  Scholatech
                 </a>
               </SheetTitle>
             </SheetHeader>
@@ -132,19 +97,16 @@ const isOpen = ref<boolean>(false);
                 variant="ghost"
                 class="justify-start text-base"
               >
-                <a
-                  @click="isOpen = false"
-                  :href="href"
-                >
+                <a @click="isOpen = false" :href="href">
                   {{ label }}
                 </a>
               </Button>
             </div>
           </div>
 
-          <SheetFooter class="flex-col sm:flex-col justify-start items-start">
+          <SheetFooter class="flex-col sm:flex-col justify-start items-start gap-4">
             <Separator class="mb-2" />
-
+            <Button variant="outline" class="w-full">Register</Button>
             <ToggleTheme />
           </SheetFooter>
         </SheetContent>
@@ -155,38 +117,16 @@ const isOpen = ref<boolean>(false);
     <NavigationMenu class="hidden lg:block">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger class="bg-card text-base">
-            Features
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <div class="grid w-[600px] grid-cols-2 gap-5 p-4">
-              <img
-                src="https://www.radix-vue.com/logo.svg"
-                alt="Beach"
-                class="h-full w-full rounded-md object-cover"
-              />
-              <ul class="flex flex-col gap-2">
-                <li
-                  v-for="{ title, description } in featureList"
-                  :key="title"
-                  class="rounded-md p-3 text-sm hover:bg-muted"
-                >
-                  <p class="mb-1 font-semibold leading-none text-foreground">
-                    {{ title }}
-                  </p>
-                  <p class="line-clamp-2 text-muted-foreground">
-                    {{ description }}
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </NavigationMenuContent>
+          <NavigationMenuLink asChild>
+            <Button as-child variant="ghost" class="justify-start text-base">
+              <a href="#features" class="flex items-center"> Features </a>
+            </Button>
+          </NavigationMenuLink>
         </NavigationMenuItem>
-
         <NavigationMenuItem>
           <NavigationMenuLink asChild>
             <Button
-              v-for="{ href, label } in routeList"
+              v-for="{ href, label } in routeList.slice(1)"
               :key="label"
               as-child
               variant="ghost"
@@ -201,23 +141,10 @@ const isOpen = ref<boolean>(false);
       </NavigationMenuList>
     </NavigationMenu>
 
-    <div class="hidden lg:flex">
+    <div class="hidden lg:flex items-center gap-4">
       <ToggleTheme />
-
-      <Button
-        as-child
-        size="sm"
-        variant="ghost"
-        aria-label="View on GitHub"
-      >
-        <a
-          aria-label="View on GitHub"
-          href="https://github.com/leoMirandaa/shadcn-vue-landing-page.git"
-          target="_blank"
-        >
-          <GithubIcon class="size-5" />
-        </a>
-      </Button>
+      <Button variant="outline">Login</Button>
+      <Button>Register</Button>
     </div>
   </header>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -7,9 +7,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-
-import { Check } from "lucide-vue-next";
+} from '@/components/ui/card';
+import { Check } from 'lucide-vue-next';
 
 enum PopularPlan {
   NO = 0,
@@ -27,79 +26,67 @@ interface PlanProps {
 
 const plans: PlanProps[] = [
   {
-    title: "Free",
+    title: 'Starter',
     popular: 0,
-    price: 0,
+    price: 99,
     description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Start Free Trial",
+      'Perfect for small tutoring centers just getting started with up to 50 students.',
+    buttonText: 'Start Free Trial',
     benefitList: [
-      "1 team member",
-      "1 GB storage",
-      "Upto 2 pages",
-      "Community support",
-      "AI assistance",
+      'Up to 50 students',
+      'Basic attendance tracking',
+      'Course management',
+      'Payment tracking',
+      'Email support',
+      'Basic reporting',
     ],
   },
   {
-    title: "Premium",
+    title: 'Professional',
     popular: 1,
-    price: 45,
+    price: 199,
     description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Get starterd",
+      'Ideal for growing centers with advanced management needs and up to 200 students.',
+    buttonText: 'Get Started',
     benefitList: [
-      "4 team member",
-      "8 GB storage",
-      "Upto 6 pages",
-      "Priority support",
-      "AI assistance",
+      'Up to 200 students',
+      'Advanced attendance system',
+      'Financial management suite',
+      'Document management',
+      'Priority support',
+      'Advanced analytics',
     ],
   },
   {
-    title: "Enterprise",
+    title: 'Enterprise',
     popular: 0,
-    price: 120,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Contact US",
+    price: 399,
+    description: 'Custom solution for large institutions with complex requirements.',
+    buttonText: 'Contact Us',
     benefitList: [
-      "10 team member",
-      "20 GB storage",
-      "Upto 10 pages",
-      "Phone & email support",
-      "AI assistance",
+      'Unlimited students',
+      'Custom integrations',
+      'Multi-branch management',
+      'API access',
+      'Dedicated support',
+      'Custom reporting',
     ],
   },
 ];
 </script>
 
 <template>
-  <section class="container py-24 sm:py-32">
-    <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-      Pricing
-    </h2>
-
-    <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">
-      Get unlimitted access
-    </h2>
-
-    <h3
-      class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground pb-14"
-    >
-      Lorem ipsum dolor sit amet consectetur adipisicing reiciendis.
+  <section id="pricing" class="container py-24 sm:py-32">
+    <h2 class="text-lg text-primary text-center mb-2 tracking-wider">Pricing</h2>
+    <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">Choose Your Plan</h2>
+    <h3 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground pb-14">
+      Flexible pricing options to support your school's growth. All plans include core
+      management features.
     </h3>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">
       <Card
-        v-for="{
-          title,
-          popular,
-          price,
-          description,
-          buttonText,
-          benefitList,
-        } in plans"
+        v-for="{ title, popular, price, description, buttonText, benefitList } in plans"
         :key="title"
         :class="{
           'drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]':
@@ -110,9 +97,7 @@ const plans: PlanProps[] = [
           <CardTitle class="pb-2">
             {{ title }}
           </CardTitle>
-
           <CardDescription class="pb-4">{{ description }}</CardDescription>
-
           <div>
             <span class="text-3xl font-bold">${{ price }}</span>
             <span class="text-muted-foreground"> /month</span>
@@ -121,11 +106,7 @@ const plans: PlanProps[] = [
 
         <CardContent class="flex">
           <div class="space-y-4">
-            <span
-              v-for="benefit in benefitList"
-              :key="benefit"
-              class="flex"
-            >
+            <span v-for="benefit in benefitList" :key="benefit" class="flex">
               <Check class="text-primary mr-2" />
               <h3>{{ benefit }}</h3>
             </span>

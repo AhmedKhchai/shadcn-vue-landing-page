@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import {
   Card,
   CardContent,
@@ -8,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
 import {
   Carousel,
   CarouselContent,
@@ -16,7 +14,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
 import { Star } from "lucide-vue-next";
 
 interface ReviewProps {
@@ -29,52 +26,51 @@ interface ReviewProps {
 
 const reviewList: ReviewProps[] = [
   {
-    image: "https://github.com/shadcn.png",
-    name: "John Doe",
-    userName: "Product Manager",
+    image: "boosting-centre.png",
+    name: "Sarah El Alami",
+    userName: "Director, Boosting Centre",
     comment:
-      "Wow Vue + Shadcn-Vue is awesome!. This template lets me change colors, fonts and images to match my brand identity. ",
+      "Scholatech has transformed how we manage our tutoring center. The attendance tracking and payment management features have saved us countless hours of administrative work.",
     rating: 5.0,
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Sophia Collins",
-    userName: "Cybersecurity Analyst",
+    image: "academic-support.png",
+    name: "Mohammed Tazi",
+    userName: "Academic Coordinator",
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ",
-    rating: 4.8,
-  },
-
-  {
-    image: "https://github.com/shadcn.png",
-    name: "Adam Johnson",
-    userName: "Chief Technology Officer",
-    comment:
-      "Lorem ipsum dolor sit amet,exercitation. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "The course scheduling and teacher management features are exceptional. We can easily match students with the right teachers and track performance effectively.",
     rating: 4.9,
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Ethan Parker",
-    userName: "Data Scientist",
+    image: "teacher.png",
+    name: "Leila Benjelloun",
+    userName: "Lead Mathematics Teacher",
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      "As a teacher, I love how easy it is to track attendance and manage my schedule. The platform helps me focus more on teaching and less on paperwork.",
     rating: 5.0,
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Ava Mitchell",
-    userName: "IT Project Manager",
+    image: "admin.png",
+    name: "Karim Alaoui",
+    userName: "School Administrator",
     comment:
-      "Lorem ipsum dolor sit amet, tempor incididunt  aliqua. Ut enim ad minim veniam, quis nostrud incididunt consectetur adipiscing elit.",
+      "The analytics dashboard has given us valuable insights into our operations. We've optimized our course offerings and improved our revenue significantly.",
+    rating: 4.8,
+  },
+  {
+    image: "parent.png",
+    name: "Fatima Zahra",
+    userName: "Parent",
+    comment:
+      "Being able to track my child's attendance and progress through the system has been incredibly helpful. The transparency gives me peace of mind.",
     rating: 5.0,
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Isabella Reed",
-    userName: "DevOps Engineer",
+    image: "finance.png",
+    name: "Hassan Berrada",
+    userName: "Financial Manager",
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "The financial management features are comprehensive and intuitive. Managing payments, discounts, and generating reports has never been easier.",
     rating: 4.9,
   },
 ];
@@ -91,7 +87,7 @@ const reviewList: ReviewProps[] = [
       </h2>
 
       <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">
-        Hear What Our 1000+ Clients Say
+        Trusted by Leading Educational Institutions
       </h2>
     </div>
 
@@ -124,10 +120,10 @@ const reviewList: ReviewProps[] = [
               <div class="flex flex-row items-center gap-4">
                 <Avatar>
                   <AvatarImage
-                    src="https://www.radix-vue.com/logo.svg"
-                    alt="@radix-vue"
+                    :src="review.image"
+                    :alt="review.name"
                   />
-                  <AvatarFallback>SV</AvatarFallback>
+                  <AvatarFallback>{{ review.name.charAt(0) }}</AvatarFallback>
                 </Avatar>
 
                 <div class="flex flex-col">

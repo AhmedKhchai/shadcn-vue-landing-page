@@ -1,11 +1,11 @@
 {
-  "name": "shadcn-vue-landing-page",
-  "description": "Shadcn/Vue landing page template using Vue, Shadcn/Vue + TypeScript + Tailwind CSS.",
-  "version": "0.1.1",
+  "name": "scholatech",
+  "description": "Scholatech - A comprehensive management system for tutoring and academic support schools.",
+  "version": "1.0.0",
   "author": {
-    "name": "Leopoldo Miranda",
-    "email": "leomirandadev@gmail.com",
-    "url": "https://github.com/leomirandaa"
+    "name": "Ahmed Khchhai",
+    "email": "a.khchai@gmail.com",
+    "url": "https://ahmedkhchai.fr"
   },
   "keywords": [
     "vue",
